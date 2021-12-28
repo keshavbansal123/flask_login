@@ -1,0 +1,18 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+h2{
+    background-color: #fafaf6;
+    padding: 30px 35px ;
+    margin: -10px -50px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+div.container{
+    width: 900px;
+    height:610px;
+    margin: 35px auto;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+div.main{
+    text-align: center;
+}

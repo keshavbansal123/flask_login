@@ -1,0 +1,133 @@
+
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>
+            Sign in Here
+        </title>
+       <!-- <link rel="stylesheet" href="templates/style.css"/>
+        <script src="templates/login.html"></script>
+       -->
+<style>
+       @import url(http://fonts.googleapis.com/css?family=Raleway);
+       h2{
+           background-color: #fafaf6;
+           padding: 30px 35px ;
+           margin: -10px -50px;
+           text-align: center;
+           border-radius: 10px 10px 0 0;
+       }
+       div.container{
+          
+           padding: 5px;
+            width: 500px;
+            margin-top: 100px;  
+           height:610px;
+           margin: 35px auto;
+           font-family:Georgia, 'Times New Roman', Times, serif;
+       }
+       
+       div.main{
+           text-align: center;
+       }
+
+
+       
+</style>
+
+    </head>
+    <bodY>
+        <!-- <section class="flex justify-center items-center h-screen bg-gray-800">
+            <div class="max-w-md w-full bg-gray-900 rounded p-6 space-y-4">
+                <div class="mb-4">
+                    <p class="text-gray-400">Sign In</p>
+                    <h2 class="text-xl font-bold text-white">Join our community</h2>
+                </div>
+                <div>
+                    <input class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="text" placeholder="Email">
+                </div>
+                <div>
+                    <input class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="text" placeholder="Password">
+                </div>
+                <div>
+                    <button class="w-full py-4 bg-blue-600 hover:bg-blue-700 rounded text-sm font-bold text-gray-50 transition duration-200">Sign In</button>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex flex-row items-center">
+                        <input type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+                        <label for="comments" class="ml-2 text-sm font-normal text-gray-400">Remember me</label>
+                    </div>
+                    <div>
+                        <a class="text-sm text-blue-600 hover:underline" href="#">Forgot password?</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+ -->
+
+
+        <div class="container bg-info">
+            <div class="main">
+                <h2>Login Here</h2>
+                <form action="{{url_for('login')}}" id="form_id" method="POST" name="myform">
+                    <hr>
+                    
+                    <input class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="text" name="username" id="username" placeholder="Username"/></br>
+                    
+                    <input type="password" name="password" id="password" placeholder="Password"/></br>
+                    <label id="blank" style="display: none"></label>
+                    
+                    <button type="submit" value="login" id="submit" onclick="validate()">Login
+                    </button>   
+                    <label>
+                        <a href="{{url_for('signup')}}"> Forgot Password</a>
+                    </label>
+                    <!--<label id="blank">username and password cannot be blank</label>-->
+                </form>
+                
+            </div>
+        </div>
+    </bodY>
+</html>
+
+<script>
+    let attempt=3
+    
+    function validate(){
+        let username=document.getElementById("username").value;
+        let password=document.getElementById("password").value;
+        if(username==""&& password==""){
+            document.getElementById("blank").innerHTML="Username & password can not be blank";
+            document.getElementById("blank").style.display="block";
+            setTimeout(() => {
+                document.getElementById("blank").style.display="none";
+            }, 3000);
+
+            //alert("Username and password cannot be blank")
+    
+           // setTimeout(() => {
+           //     document.getElementById("blank").display="block";
+           // }, 3000);
+        }
+        if(username=="keshav" && password=="password"){
+            //alert("login successfully");
+            document.getElementById("blank").innerHTML="Login Successfully";
+            document.getElementById("blank").style.display="block";
+            setTimeout(() => {
+                document.getElementById("blank").style.display="none";
+            }, 3000);
+        }
+        else{
+            attempt --;
+            alert("You have left "+attempt+" attempt")
+        if(attempt==0){
+            document.getElementById("username").disabled=true;
+            document.getElementById("password").disabled=true;
+            document.getElementById("submit").disabled=true;
+            
+        }
+        }
+    
+    }
+    </script>
